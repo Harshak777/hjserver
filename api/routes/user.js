@@ -20,7 +20,8 @@ router.route('/name').get(async (req, res) => {
         return res.status(409).json({
           message: 'mail exists',
         });
-}
+      }
+    });
 });
 
 router.route('/signup').post(async (req, res) => {
