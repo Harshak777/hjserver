@@ -12,6 +12,17 @@ router.route('/test').get(async (req, res) => {
   res.json({ status: 'online' });
 });
 
+router.route('/name').get(async (req, res) => {
+  User.find({ email: req.body.email })
+    .exec()
+    .then((user) => {
+      if (user.length >= 1) {
+        return res.status(409).json({
+          message: 'mail exists',
+        });
+}
+});
+
 router.route('/signup').post(async (req, res) => {
   User.find({ email: req.body.email })
     .exec()
