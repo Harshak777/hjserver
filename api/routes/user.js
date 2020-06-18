@@ -12,7 +12,7 @@ router.route('/test').get(async (req, res) => {
   res.json({ status: 'online' });
 });
 
-router.post('/signup', (req, res, next) => {
+router.route('/signup').post(async (req, res) => {
   User.find({ email: req.body.email })
     .exec()
     .then((user) => {
